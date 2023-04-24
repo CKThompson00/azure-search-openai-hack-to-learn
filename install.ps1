@@ -3,10 +3,10 @@ Write-Host "Running Bicep Deployment..."
 Write-Host ""
 
 Write-Host "Enter the region you wish to deploy to:"
-$region = Read-Host
+$region = (Read-Host).ToUpper()
 
 Write-Host "Enter the environment name:"
-$environment = Read-Host
+$environment = (Read-Host).ToLower()
 
 Write-Host "Enter the principalId:"
 $principalId = Read-Host
