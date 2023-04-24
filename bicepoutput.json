@@ -1,0 +1,613 @@
+{
+  "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/providers/Microsoft.Resources/deployments/main",
+  "location": "southcentralus",
+  "name": "main",
+  "properties": {
+    "correlationId": "923c827e-e731-494b-adbf-5300bf7298c6",
+    "debugSetting": null,
+    "dependencies": [
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1",
+            "resourceName": "rg-cnt-demo1",
+            "resourceType": "Microsoft.Resources/resourceGroups"
+          }
+        ],
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/appserviceplan",
+        "resourceGroup": "rg-cnt-demo1",
+        "resourceName": "appserviceplan",
+        "resourceType": "Microsoft.Resources/deployments"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/appserviceplan",
+            "resourceGroup": "rg-cnt-demo1",
+            "resourceName": "appserviceplan",
+            "resourceType": "Microsoft.Resources/deployments"
+          },
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/openai",
+            "resourceGroup": "rg-cnt-demo1",
+            "resourceName": "openai",
+            "resourceType": "Microsoft.Resources/deployments"
+          },
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1",
+            "resourceName": "rg-cnt-demo1",
+            "resourceType": "Microsoft.Resources/resourceGroups"
+          },
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/search-service",
+            "resourceGroup": "rg-cnt-demo1",
+            "resourceName": "search-service",
+            "resourceType": "Microsoft.Resources/deployments"
+          },
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/storage",
+            "resourceGroup": "rg-cnt-demo1",
+            "resourceName": "storage",
+            "resourceType": "Microsoft.Resources/deployments"
+          },
+          {
+            "apiVersion": "2022-09-01",
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/appserviceplan",
+            "resourceGroup": "rg-cnt-demo1",
+            "resourceName": "appserviceplan",
+            "resourceType": "Microsoft.Resources/deployments"
+          },
+          {
+            "apiVersion": "2022-09-01",
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/storage",
+            "resourceGroup": "rg-cnt-demo1",
+            "resourceName": "storage",
+            "resourceType": "Microsoft.Resources/deployments"
+          },
+          {
+            "apiVersion": "2022-09-01",
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/openai",
+            "resourceGroup": "rg-cnt-demo1",
+            "resourceName": "openai",
+            "resourceType": "Microsoft.Resources/deployments"
+          },
+          {
+            "apiVersion": "2022-09-01",
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/search-service",
+            "resourceGroup": "rg-cnt-demo1",
+            "resourceName": "search-service",
+            "resourceType": "Microsoft.Resources/deployments"
+          }
+        ],
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/web",
+        "resourceGroup": "rg-cnt-demo1",
+        "resourceName": "web",
+        "resourceType": "Microsoft.Resources/deployments"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1",
+            "resourceName": "rg-cnt-demo1",
+            "resourceType": "Microsoft.Resources/resourceGroups"
+          }
+        ],
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/openai",
+        "resourceGroup": "rg-cnt-demo1",
+        "resourceName": "openai",
+        "resourceType": "Microsoft.Resources/deployments"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1",
+            "resourceName": "rg-cnt-demo1",
+            "resourceType": "Microsoft.Resources/resourceGroups"
+          }
+        ],
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/formrecognizer",
+        "resourceGroup": "rg-cnt-demo1",
+        "resourceName": "formrecognizer",
+        "resourceType": "Microsoft.Resources/deployments"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1",
+            "resourceName": "rg-cnt-demo1",
+            "resourceType": "Microsoft.Resources/resourceGroups"
+          }
+        ],
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/search-service",
+        "resourceGroup": "rg-cnt-demo1",
+        "resourceName": "search-service",
+        "resourceType": "Microsoft.Resources/deployments"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1",
+            "resourceName": "rg-cnt-demo1",
+            "resourceType": "Microsoft.Resources/resourceGroups"
+          }
+        ],
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/storage",
+        "resourceGroup": "rg-cnt-demo1",
+        "resourceName": "storage",
+        "resourceType": "Microsoft.Resources/deployments"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1",
+            "resourceName": "rg-cnt-demo1",
+            "resourceType": "Microsoft.Resources/resourceGroups"
+          }
+        ],
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/openai-role-user",
+        "resourceGroup": "rg-cnt-demo1",
+        "resourceName": "openai-role-user",
+        "resourceType": "Microsoft.Resources/deployments"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1",
+            "resourceName": "rg-cnt-demo1",
+            "resourceType": "Microsoft.Resources/resourceGroups"
+          }
+        ],
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/formrecognizer-role-user",
+        "resourceGroup": "rg-cnt-demo1",
+        "resourceName": "formrecognizer-role-user",
+        "resourceType": "Microsoft.Resources/deployments"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1",
+            "resourceName": "rg-cnt-demo1",
+            "resourceType": "Microsoft.Resources/resourceGroups"
+          }
+        ],
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/storage-role-user",
+        "resourceGroup": "rg-cnt-demo1",
+        "resourceName": "storage-role-user",
+        "resourceType": "Microsoft.Resources/deployments"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1",
+            "resourceName": "rg-cnt-demo1",
+            "resourceType": "Microsoft.Resources/resourceGroups"
+          }
+        ],
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/storage-contribrole-user",
+        "resourceGroup": "rg-cnt-demo1",
+        "resourceName": "storage-contribrole-user",
+        "resourceType": "Microsoft.Resources/deployments"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1",
+            "resourceName": "rg-cnt-demo1",
+            "resourceType": "Microsoft.Resources/resourceGroups"
+          }
+        ],
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/search-role-user",
+        "resourceGroup": "rg-cnt-demo1",
+        "resourceName": "search-role-user",
+        "resourceType": "Microsoft.Resources/deployments"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1",
+            "resourceName": "rg-cnt-demo1",
+            "resourceType": "Microsoft.Resources/resourceGroups"
+          }
+        ],
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/search-contrib-role-user",
+        "resourceGroup": "rg-cnt-demo1",
+        "resourceName": "search-contrib-role-user",
+        "resourceType": "Microsoft.Resources/deployments"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/web",
+            "resourceGroup": "rg-cnt-demo1",
+            "resourceName": "web",
+            "resourceType": "Microsoft.Resources/deployments"
+          },
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1",
+            "resourceName": "rg-cnt-demo1",
+            "resourceType": "Microsoft.Resources/resourceGroups"
+          },
+          {
+            "apiVersion": "2022-09-01",
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/web",
+            "resourceGroup": "rg-cnt-demo1",
+            "resourceName": "web",
+            "resourceType": "Microsoft.Resources/deployments"
+          }
+        ],
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/openai-role-backend",
+        "resourceGroup": "rg-cnt-demo1",
+        "resourceName": "openai-role-backend",
+        "resourceType": "Microsoft.Resources/deployments"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/web",
+            "resourceGroup": "rg-cnt-demo1",
+            "resourceName": "web",
+            "resourceType": "Microsoft.Resources/deployments"
+          },
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1",
+            "resourceName": "rg-cnt-demo1",
+            "resourceType": "Microsoft.Resources/resourceGroups"
+          },
+          {
+            "apiVersion": "2022-09-01",
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/web",
+            "resourceGroup": "rg-cnt-demo1",
+            "resourceName": "web",
+            "resourceType": "Microsoft.Resources/deployments"
+          }
+        ],
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/storage-role-backend",
+        "resourceGroup": "rg-cnt-demo1",
+        "resourceName": "storage-role-backend",
+        "resourceType": "Microsoft.Resources/deployments"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/web",
+            "resourceGroup": "rg-cnt-demo1",
+            "resourceName": "web",
+            "resourceType": "Microsoft.Resources/deployments"
+          },
+          {
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1",
+            "resourceName": "rg-cnt-demo1",
+            "resourceType": "Microsoft.Resources/resourceGroups"
+          },
+          {
+            "apiVersion": "2022-09-01",
+            "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/web",
+            "resourceGroup": "rg-cnt-demo1",
+            "resourceName": "web",
+            "resourceType": "Microsoft.Resources/deployments"
+          }
+        ],
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Resources/deployments/search-role-backend",
+        "resourceGroup": "rg-cnt-demo1",
+        "resourceName": "search-role-backend",
+        "resourceType": "Microsoft.Resources/deployments"
+      }
+    ],
+    "duration": "PT3M48.7009509S",
+    "error": null,
+    "mode": "Incremental",
+    "onErrorDeployment": null,
+    "outputResources": [
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Authorization/roleAssignments/272aa6ea-dbba-56d2-b50f-247440db9875",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Authorization/roleAssignments/301a5c39-89fd-5614-a77a-89b71a5b1eba",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Authorization/roleAssignments/3e5f23a6-5759-5aad-a121-b59664c5004a",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Authorization/roleAssignments/4af343de-74e5-54df-ac8f-6220439c7b93",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Authorization/roleAssignments/689d4218-cf6c-5773-ae2d-dc79895cf327",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Authorization/roleAssignments/77a3dd83-9363-5068-8af4-8b624bae99f6",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Authorization/roleAssignments/78eca0cb-4d5b-594e-9374-c0031a6fd22e",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Authorization/roleAssignments/beb9c2e1-e512-5308-ac7a-da38fa93bcb5",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Authorization/roleAssignments/e6d0053a-7810-5dbb-97d2-43ca33034fb0",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.CognitiveServices/accounts/cog-cuk4m4z34k5ti",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.CognitiveServices/accounts/cog-cuk4m4z34k5ti/deployments/chat",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.CognitiveServices/accounts/cog-cuk4m4z34k5ti/deployments/davinci",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.CognitiveServices/accounts/cog-fr-cuk4m4z34k5ti",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Search/searchServices/gptkb-cuk4m4z34k5ti",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Storage/storageAccounts/stcuk4m4z34k5ti",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Storage/storageAccounts/stcuk4m4z34k5ti/blobServices/default",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Storage/storageAccounts/stcuk4m4z34k5ti/blobServices/default/containers/content",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Web/serverfarms/plan-cuk4m4z34k5ti",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Web/sites/app-backend-cuk4m4z34k5ti",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Web/sites/app-backend-cuk4m4z34k5ti/config/appsettings",
+        "resourceGroup": "rg-cnt-demo1"
+      },
+      {
+        "id": "/subscriptions/9187b27d-3937-43d8-a048-3bb0208ca94a/resourceGroups/rg-cnt-demo1/providers/Microsoft.Web/sites/app-backend-cuk4m4z34k5ti/config/logs",
+        "resourceGroup": "rg-cnt-demo1"
+      }
+    ],
+    "outputs": {
+      "azurE_FORMRECOGNIZER_RESOURCE_GROUP": {
+        "type": "String",
+        "value": "rg-cnt-demo1"
+      },
+      "azurE_FORMRECOGNIZER_SERVICE": {
+        "type": "String",
+        "value": "cog-fr-cuk4m4z34k5ti"
+      },
+      "azurE_LOCATION": {
+        "type": "String",
+        "value": "South Central US"
+      },
+      "azurE_OPENAI_CHATGPT_DEPLOYMENT": {
+        "type": "String",
+        "value": "chat"
+      },
+      "azurE_OPENAI_GPT_DEPLOYMENT": {
+        "type": "String",
+        "value": "davinci"
+      },
+      "azurE_OPENAI_RESOURCE_GROUP": {
+        "type": "String",
+        "value": "rg-cnt-demo1"
+      },
+      "azurE_OPENAI_SERVICE": {
+        "type": "String",
+        "value": "cog-cuk4m4z34k5ti"
+      },
+      "azurE_RESOURCE_GROUP": {
+        "type": "String",
+        "value": "rg-cnt-demo1"
+      },
+      "azurE_SEARCH_INDEX": {
+        "type": "String",
+        "value": "gptkbindex"
+      },
+      "azurE_SEARCH_SERVICE": {
+        "type": "String",
+        "value": "gptkb-cuk4m4z34k5ti"
+      },
+      "azurE_SEARCH_SERVICE_RESOURCE_GROUP": {
+        "type": "String",
+        "value": "rg-cnt-demo1"
+      },
+      "azurE_STORAGE_ACCOUNT": {
+        "type": "String",
+        "value": "stcuk4m4z34k5ti"
+      },
+      "azurE_STORAGE_CONTAINER": {
+        "type": "String",
+        "value": "content"
+      },
+      "azurE_STORAGE_RESOURCE_GROUP": {
+        "type": "String",
+        "value": "rg-cnt-demo1"
+      },
+      "azurE_TENANT_ID": {
+        "type": "String",
+        "value": "16b3c013-d300-468d-ac64-7eda0820b6d3"
+      },
+      "backenD_URI": {
+        "type": "String",
+        "value": "https://app-backend-cuk4m4z34k5ti.azurewebsites.net"
+      }
+    },
+    "parameters": {
+      "appServicePlanName": {
+        "type": "String",
+        "value": ""
+      },
+      "backendServiceName": {
+        "type": "String",
+        "value": ""
+      },
+      "chatGptDeploymentName": {
+        "type": "String",
+        "value": "chat"
+      },
+      "chatGptModelName": {
+        "type": "String",
+        "value": "gpt-35-turbo"
+      },
+      "environmentName": {
+        "type": "String",
+        "value": "cnt-demo1"
+      },
+      "formRecognizerResourceGroupLocation": {
+        "type": "String",
+        "value": "South Central US"
+      },
+      "formRecognizerResourceGroupName": {
+        "type": "String",
+        "value": ""
+      },
+      "formRecognizerServiceName": {
+        "type": "String",
+        "value": ""
+      },
+      "formRecognizerSkuName": {
+        "type": "String",
+        "value": "S0"
+      },
+      "gptDeploymentName": {
+        "type": "String",
+        "value": "davinci"
+      },
+      "gptModelName": {
+        "type": "String",
+        "value": "text-davinci-003"
+      },
+      "location": {
+        "type": "String",
+        "value": "South Central US"
+      },
+      "openAiResourceGroupLocation": {
+        "type": "String",
+        "value": "South Central US"
+      },
+      "openAiResourceGroupName": {
+        "type": "String",
+        "value": ""
+      },
+      "openAiServiceName": {
+        "type": "String",
+        "value": ""
+      },
+      "openAiSkuName": {
+        "type": "String",
+        "value": "S0"
+      },
+      "principalId": {
+        "type": "String",
+        "value": "83db9412-85f4-4a25-a55a-57c11261b899"
+      },
+      "resourceGroupName": {
+        "type": "String",
+        "value": ""
+      },
+      "searchIndexName": {
+        "type": "String",
+        "value": "gptkbindex"
+      },
+      "searchServiceName": {
+        "type": "String",
+        "value": ""
+      },
+      "searchServiceResourceGroupLocation": {
+        "type": "String",
+        "value": "South Central US"
+      },
+      "searchServiceResourceGroupName": {
+        "type": "String",
+        "value": ""
+      },
+      "searchServiceSkuName": {
+        "type": "String",
+        "value": "standard"
+      },
+      "storageAccountName": {
+        "type": "String",
+        "value": ""
+      },
+      "storageContainerName": {
+        "type": "String",
+        "value": "content"
+      },
+      "storageResourceGroupLocation": {
+        "type": "String",
+        "value": "South Central US"
+      },
+      "storageResourceGroupName": {
+        "type": "String",
+        "value": ""
+      }
+    },
+    "parametersLink": null,
+    "providers": [
+      {
+        "id": null,
+        "namespace": "Microsoft.Resources",
+        "providerAuthorizationConsentState": null,
+        "registrationPolicy": null,
+        "registrationState": null,
+        "resourceTypes": [
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              "southcentralus"
+            ],
+            "properties": null,
+            "resourceType": "resourceGroups",
+            "zoneMappings": null
+          },
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              null
+            ],
+            "properties": null,
+            "resourceType": "deployments",
+            "zoneMappings": null
+          }
+        ]
+      }
+    ],
+    "provisioningState": "Succeeded",
+    "templateHash": "6202534553906667031",
+    "templateLink": null,
+    "timestamp": "2023-04-24T02:41:26.742209+00:00",
+    "validatedResources": null
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/deployments"
+}
