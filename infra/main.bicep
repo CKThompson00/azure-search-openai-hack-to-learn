@@ -40,7 +40,7 @@ param formRecognizerSkuName string = 'S0'
 param gptDeploymentName string = 'davinci'
 param gptModelName string = 'text-davinci-003'
 param chatGptDeploymentName string = 'chat'
-param chatGptModelName string = 'gpt-4'
+param chatGptModelName string = 'gpt-35-turbo'
 
 @description('Id of the user or app to assign application roles')
 param principalId string = ''
@@ -140,7 +140,7 @@ module openAi 'core/ai/cognitiveservices.bicep' = {
         model: {
           format: 'OpenAI'
           name: chatGptModelName
-          version: '0314'
+          version: '0301'
         }
         scaleSettings: {
           scaleType: 'Standard'
