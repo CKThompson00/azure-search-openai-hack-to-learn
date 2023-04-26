@@ -40,7 +40,7 @@ param formRecognizerSkuName string = 'S0'
 param gptDeploymentName string = 'davinci'
 param gptModelName string = 'text-davinci-003'
 param chatGptDeploymentName string = 'chat'
-param chatGptModelName string = 'gpt-35-turbo'
+param chatGptModelName string = 'gpt-4'
 
 @description('Id of the user or app to assign application roles')
 param principalId string = ''
