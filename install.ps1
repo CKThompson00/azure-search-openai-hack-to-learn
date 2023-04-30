@@ -70,4 +70,4 @@ npm run build
 Set-Location "../backend"
 Compress-Archive -Path * -DestinationPath ../../backend.zip -Force
 Write-Output $env:AZURE_BACKEND_SERVICE_NAME
-az webapp deploy --resource-group $env:AZURE_OPENAI_RESOURCE_GROUP --name $env:AZURE_BACKEND_SERVICE_NAME --src-path backend.zip --type zip --async true
+az webapp deploy --resource-group $env:AZURE_OPENAI_RESOURCE_GROUP --name $env:AZURE_BACKEND_SERVICE_NAME --src-path ../../backend.zip --type zip --async true
