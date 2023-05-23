@@ -1,7 +1,8 @@
-Write-Host ""
-Write-Host "Running Bicep Deployment..."
-Write-Host ""
-
+##############################################################################
+##
+##    Inputs required
+##
+##############################################################################
 Write-Host "Enter the region you wish to deploy to:"
 $region = (Read-Host).ToUpper()
 
@@ -11,12 +12,42 @@ $environment = (Read-Host).ToLower()
 Write-Host "Enter the principalId:"
 $principalId = Read-Host
 
+Write-Host "Do you want to rebuild the backend (y/N):"
+$inputBEBuild = (Read-Host).ToUpper()
+if ($inputBEBuild -eq 'Y')
+{
+  $buildBackEnd = $true
+}
+else 
+{
+  $buildBackEnd = $false
+}
+
+##############################################################################
+##
+##    Deployment
+##
+##############################################################################
 Write-Host ""
 Write-Host "Deploying resources..."
 Write-Host ""
 
-az deployment sub create --template-file ./infra/main.bicep --location $region --parameters location=$region environmentName=$environment principalId=$principalId > bicepoutput.json
+Write-Host ""
+Write-Host "    Running Bicep Deployment..."
+Write-Host ""
 
+az deployment sub create --template-file ./infra/main.bicep --location $region `
+            --parameters location=$region environmentName=$environment principalId=$principalId `
+            > bicepoutput.json
+
+##############################################################################
+##
+##    Set Environment Variables 
+##
+##############################################################################
+Write-Host ""
+Write-Host "    Setting Environment Variables..."
+Write-Host ""
 $content = Get-Content -Raw -Path bicepoutput.json
 $json_output = $content | ConvertFrom-Json
 
@@ -38,36 +69,58 @@ $json_output = $content | ConvertFrom-Json
 [Environment]::SetEnvironmentVariable("BACKEND_URI", $json_output.properties.outputs.BACKEND_URI.value)
 [Environment]::SetEnvironmentVariable("AZURE_BACKEND_SERVICE_NAME", $json_output.properties.outputs.AZURE_BACKEND_SERVICE_NAME.value)
 
-Write-Host "Environment variables set."
+Write-Host "    Environment variables set."
 
-$pythonCmd = Get-Command python -ErrorAction SilentlyContinue
-if (-not $pythonCmd) {
-  # fallback to python3 if python not found
-  $pythonCmd = Get-Command python3 -ErrorAction SilentlyContinue
+# $pythonCmd = Get-Command python -ErrorAction SilentlyContinue
+# if (-not $pythonCmd) {
+#   # fallback to python3 if python not found
+#   $pythonCmd = Get-Command python3 -ErrorAction SilentlyContinue
+# }
+
+# Write-Host 'Creating python virtual environment "scripts/.venv"'
+# Start-Process -FilePath ($pythonCmd).Source -ArgumentList "-m venv ./scripts/.venv" -Wait -NoNewWindow
+
+# $venvPythonPath = "./scripts/.venv/scripts/python.exe"
+# if (Test-Path -Path "/usr") {
+#   # fallback to Linux venv path
+#   $venvPythonPath = "./scripts/.venv/bin/python"
+# }
+
+# Write-Host 'Installing dependencies from "requirements.txt" into virtual environment'
+# Start-Process -FilePath $venvPythonPath -ArgumentList "-m pip install -r ./scripts/requirements.txt" -Wait -NoNewWindow
+
+# Write-Host 'Running "prepdocs.py"'
+# $cwd = (Get-Location)
+# Start-Process -FilePath $venvPythonPath -ArgumentList "./scripts/prepdocs.py $cwd/data/* --storageaccount $env:AZURE_STORAGE_ACCOUNT --container $env:AZURE_STORAGE_CONTAINER --searchservice $env:AZURE_SEARCH_SERVICE --index $env:AZURE_SEARCH_INDEX --formrecognizerservice $env:AZURE_FORMRECOGNIZER_SERVICE --tenantid $env:AZURE_TENANT_ID -v" -Wait -NoNewWindow
+
+##############################################################################
+##
+##    Build UI
+##
+##############################################################################
+Write-Host ""
+Write-Host "    Building UI..."
+Write-Host ""
+
+if ($buildBackEnd -eq $true) {
+  Set-Location "app/frontend"
+  npm install
+  npm run build
+  Set-Location "../backend"
+  Compress-Archive -Path * -DestinationPath ../../backend.zip -Force
 }
 
-Write-Host 'Creating python virtual environment "scripts/.venv"'
-Start-Process -FilePath ($pythonCmd).Source -ArgumentList "-m venv ./scripts/.venv" -Wait -NoNewWindow
+##############################################################################
+##
+##    Deploy UI
+##
+##############################################################################
+Write-Host ""
+Write-Host "    Deploying UI..."
+Write-Host ""
 
-$venvPythonPath = "./scripts/.venv/scripts/python.exe"
-if (Test-Path -Path "/usr") {
-  # fallback to Linux venv path
-  $venvPythonPath = "./scripts/.venv/bin/python"
-}
+az webapp deploy --resource-group $env:AZURE_RESOURCE_GROUP --name $env:AZURE_BACKEND_SERVICE_NAME --src-path ../../backend.zip --type zip --async true
 
-Write-Host 'Installing dependencies from "requirements.txt" into virtual environment'
-Start-Process -FilePath $venvPythonPath -ArgumentList "-m pip install -r ./scripts/requirements.txt" -Wait -NoNewWindow
-
-Write-Host 'Running "prepdocs.py"'
-$cwd = (Get-Location)
-Start-Process -FilePath $venvPythonPath -ArgumentList "./scripts/prepdocs.py $cwd/data/* --storageaccount $env:AZURE_STORAGE_ACCOUNT --container $env:AZURE_STORAGE_CONTAINER --searchservice $env:AZURE_SEARCH_SERVICE --index $env:AZURE_SEARCH_INDEX --formrecognizerservice $env:AZURE_FORMRECOGNIZER_SERVICE --tenantid $env:AZURE_TENANT_ID -v" -Wait -NoNewWindow
-
-
-Set-Location "app/frontend"
-npm install
-npm run build
-
-Set-Location "../backend"
-Compress-Archive -Path * -DestinationPath ../../backend.zip -Force
-Write-Output $env:AZURE_BACKEND_SERVICE_NAME
-az webapp deploy --resource-group $env:AZURE_OPENAI_RESOURCE_GROUP --name $env:AZURE_BACKEND_SERVICE_NAME --src-path ../../backend.zip --type zip --async true
+Write-Host ""
+Write-Host "Deployment Complete."
+Write-Host ""
