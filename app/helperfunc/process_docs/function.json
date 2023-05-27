@@ -1,0 +1,13 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "myblob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "datadrop/{name}.{extension}",
+      "source": "EventGrid",
+      "connection": "saopenaidocsplit1af51d_STORAGE",
+    }
+  ]
+}

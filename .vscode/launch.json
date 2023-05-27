@@ -23,7 +23,7 @@
             ],
             "console": "integratedTerminal",
             "justMyCode": true,
-            "envFile": "${input:dotEnvFilePath}",
+            "envFile": "${input:dotEnvFilePath}"
         },
         {
             "name": "Frontend: watch",
@@ -35,7 +35,7 @@
                 "run-script",
                 "watch"
             ],
-            "console": "integratedTerminal",
+            "console": "integratedTerminal"
         },
         {
             "name": "Frontend: build",
@@ -47,7 +47,14 @@
                 "run-script",
                 "build"
             ],
-            "console": "integratedTerminal",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Attach to Python Functions",
+            "type": "python",
+            "request": "attach",
+            "port": 9091,
+            "preLaunchTask": "func: host start"
         }
     ],
     "inputs": [
