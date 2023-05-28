@@ -13,6 +13,7 @@ from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 from pypdf import PdfReader, PdfWriter
 from azure.search.documents import SearchClient
 from azure.ai.formrecognizer import DocumentAnalysisClient
+from azure.core.credentials import AzureKeyCredential
 
 MAX_SECTION_LENGTH = 1000
 SENTENCE_SEARCH_LIMIT = 100
@@ -41,7 +42,7 @@ def process_document(myblob):
     page_map = get_document_text(tempFile)
     sections = create_sections(os.path.basename(tempFile), page_map)
     index_sections(os.path.basename(tempFile), sections)
-    os.file.remove(tempFile, )
+    os.remove(tempFile)
 
 def blob_name_from_file_page(filename, page = 0):
     if os.path.splitext(filename)[1].lower() == ".pdf":
@@ -181,7 +182,7 @@ def split_text(page_map):
             # If the section ends with an unclosed table, we need to start the next section with the table.
             # If table starts inside SENTENCE_SEARCH_LIMIT, we ignore it, as that will cause an infinite loop for tables longer than MAX_SECTION_LENGTH
             # If last table starts inside SECTION_OVERLAP, keep overlapping
-            if args.verbose: print(f"Section ends with unclosed table, starting next section with the table at page {find_page(start)} offset {start} table start {last_table_start}")
+            logging.info(f"Section ends with unclosed table, starting next section with the table at page {find_page(start)} offset {start} table start {last_table_start}")
             start = min(end - SECTION_OVERLAP, start + last_table_start)
         else:
             start = end - SECTION_OVERLAP
@@ -194,7 +195,7 @@ def create_sections(filename, page_map):
         yield {
             "id": re.sub("[^0-9a-zA-Z_-]","_",f"{filename}-{i}"),
             "content": section,
-            "category": args.category,
+            "category": '',
             "sourcepage": blob_name_from_file_page(filename, pagenum),
             "sourcefile": filename
         }
@@ -203,7 +204,7 @@ def index_sections(filename, sections):
     logging.info(f"Indexing sections from '{filename}' into search index '{os.environ.get('COG_SEARCH_INDEX')}'")
     search_client = SearchClient(endpoint=f"https://{os.environ.get('COG_SEARCH_SERVICE')}.search.windows.net/",
                                     index_name=os.environ.get("COG_SEARCH_INDEX"),
-                                    credential=DefaultAzureCredential())
+                                    credential=AzureKeyCredential(os.environ.get("COG_SEARCH_KEY")))
     i = 0
     batch = []
     for s in sections:
@@ -212,7 +213,7 @@ def index_sections(filename, sections):
         if i % 1000 == 0:
             results = search_client.upload_documents(documents=batch)
             succeeded = sum([1 for r in results if r.succeeded])
-            if args.verbose: print(f"\tIndexed {len(results)} sections, {succeeded} succeeded")
+            logging.info(f"\tIndexed {len(results)} sections, {succeeded} succeeded")
             batch = []
 
     if len(batch) > 0:
