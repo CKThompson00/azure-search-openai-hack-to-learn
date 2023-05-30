@@ -122,5 +122,11 @@ Write-Host ""
 az webapp deploy --resource-group $env:AZURE_RESOURCE_GROUP --name $env:AZURE_BACKEND_SERVICE_NAME --src-path ../../backend.zip --type zip --async true
 
 Write-Host ""
+Write-Host "    Deploying Function..."
+Write-Host ""
+
+az functionapp deploy --resource-group $env:AZURE_RESOURCE_GROUP --name $env:FUNCTION_APP_NAME --src-path function.zip --type zip --async true
+
+Write-Host ""
 Write-Host "Deployment Complete."
 Write-Host ""
